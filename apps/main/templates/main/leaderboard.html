@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Leaderboard</title>
+</head>
+<body>
+    <div clas"container">
+        <p><a href="">Log Out</a></p>
+        <h1>Leaderboard</h1>
+        <table>
+            <th>
+                <td>Ranking</td>
+                <td>Alias</td>
+                <td>Score</td>
+                <td>Wins</td>
+                <td>Losses</td>
+            </th>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <form action="/main/" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Main Menu">
+        </form>
+    </div>
+</body>
+</html>

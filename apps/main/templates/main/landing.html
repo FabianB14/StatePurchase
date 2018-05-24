@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LANDING</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="head"><p><a href="">Log out</a></p></div>
+            <div>
+                <h1 class="top">Greetings Conquerer!</h1>
+                <form action="play/" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="Play!">
+                </form>
+                <form action="profile/" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="Profile">
+                </form>
+                <form action="leaderboard/" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="Leaderboard">
+                </form>
+            </div>
+        </div>
+        <div class="right">
+            <img src="" alt="sorry">
+        </div>
+    </div>
+</body>
+</html>

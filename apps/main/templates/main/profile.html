@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <p><a href="">Log Out</a></p>
+            <h1>place holder for user Alias</h1>
+            <p>place holder for user dialouge</p>
+            <h4>Win/lose Ratio</h4>
+            
+        </div>
+        <div class="right">
+            <table>
+                <th>
+                    <td>Game history</td>
+                    <td>Date</td>
+                    <td>Result</td>
+                    <td>Oppent</td>
+                </th>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+            <form action="/main/" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Main Menu">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
