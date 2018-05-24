@@ -34,3 +34,20 @@ class StateData(models.Model):
     agent = models.ForeignKey(AgentData, related_name="states", on_delete=models.CASCADE)
     game = models.ForeignKey(GameData, related_name="states", on_delete=models.CASCADE)
     levels = models.ForeignKey(User, related_name='states',on_delete = models.CASCADE)
+
+class LocationData(models.Model):
+    x = models.FloatField()
+    y = models.FloatField()
+
+# status: 2, Healthy; 1, Rundown; 0, Abandoned
+# efficency: 2, Highly Efficent, 1: Efficent, 0: Inefficent
+# type: School, Police Station, Road, Company(_Basic, _Midlevel, _Tech)
+# size: 1-10
+
+class BuildingData(models.Model):
+    status = models.IntegerField(default=2)
+    efficency = models.IntegerField(default=0)
+    type = models.CharField(max_length=255)
+    size = models.IntegerField(default=1)
+    location = models.ForeignKey(LocationData, on_delete=models.CASCADE)
+    state = models.ForeignKey(StateData, related_name="buildings", on_delete=models.CASCADE)

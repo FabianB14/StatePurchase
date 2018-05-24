@@ -93,6 +93,60 @@ body {
   margin-top: 40px;
 }
 
+.state img {
+  width: 100%;
+  height: 100%;
+}
+
+.buildings {
+  display: block;
+}
+
+.building {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: #f33;
+  z-index: 1;
+}
+
+.building img {
+  z-index: -1;
+}
+
+.school {
+  background: #33f;
+}
+
+.road {
+  background: #555;
+}
+
+.police {
+  background: #223;
+}
+
+.info_panel div {
+  font-size: 24px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.fix-button {
+  width: 140px;
+  height: 30px;
+  background: #f33;
+  text-decoration: none;
+  color: #eee;
+  padding: 12px;
+  margin-top: 10px;
+  display: block;
+  border-radius: 4px;
+  text-align: center;
+}
+
 .control_panel {
   background: #111;
   border: 1px solid #eee;
@@ -129,6 +183,10 @@ body {
   padding: 8px;
   border-radius: 8px;
   border: 1px solid #eee;
+}
+
+a.upgrade_button {
+  width: 360px;
 }
 
 .info_panel {

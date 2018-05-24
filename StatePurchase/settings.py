@@ -31,11 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
     'django_extensions',
-=======
     'apps.main',
->>>>>>> 094a20cfd9a54d97144d4223eeeecbb6a839ef07
     'apps.game',
     'django.contrib.admin',
     'django.contrib.auth',

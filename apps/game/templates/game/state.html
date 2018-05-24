@@ -5,6 +5,19 @@
     <title>State</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'game/css/state.css' %}">
+
+    <style media="screen">
+
+      {% for building in state.buildings.all %}
+
+      .building_{{ building.id }} {
+        left: {{ building.location.x }}px !important;
+        top: {{ building.location.y }}px !important;
+      }
+
+      {% endfor %}
+
+    </style>
   </head>
   <body>
 
@@ -14,13 +27,13 @@
       <div class="stats">
         <ul>
           <li>
-            Traffic: {{ state.stats.traffic }}
+            Traffic: {{ traffic }}%
           </li>
           <li>
-            Crime: {{ state.stats.crime }}
+            Crime: {{ crime }}%
           </li>
           <li>
-            Education: {{ state.stats.education }}
+            Education: {{ education }}%
           </li>
           <li>
             Population: {{ state.stats.population }}k
@@ -45,13 +58,20 @@
     <div class="container">
 
       <div class="state">
+<<<<<<< HEAD
         
+=======
+        <img src="{% static 'game/img/states/'|add:state.name|add:'.png' %}" alt="">
+        <div class="buildings">
+          {{ rendition|safe }}
+        </div>
+>>>>>>> f3fd25fa680060e2c1d2e731e4005e0553077212
       </div>
 
       <div class="control_panel">
-        <ul>
+        <ul class="menu_home">
           <li>
-            <a href="#">Upgrades</a>
+            <a class="upgrades_menu_button" href="#">Upgrades</a>
           </li>
           <li>
             <a href="#">Research</a>
@@ -61,6 +81,53 @@
           </li>
           <li>
             <a href="#">Strategy</a>
+          </li>
+        </ul>
+        <ul class="menu_upgrades hidden">
+          <li>
+            <a class="traffic_upgrades_button" href="#">Traffic</a>
+          </li>
+          <li>
+            <a class="police_upgrades_button" href="#">Police</a>
+          </li>
+          <li>
+            <a class="education_upgrades_button" href="#">Education</a>
+          </li>
+          <li>
+            <a class="main_button" href="#">Main</a>
+          </li>
+        </ul>
+        <ul class="menu_upgrades_traffic hidden">
+          <li>
+            <a class="upgrade_button" href="/modify/states/{{ state.id }}/build/road">Build Road (10m)</a>
+          </li>
+          <li>
+            <a class="upgrade_button" href="/modify/states/{{ state.id }}/improve/road">Improve Roads (20m)</a>
+          </li>
+          <li>
+            <a class="main_button" href="#">Main</a>
+          </li>
+        </ul>
+        <ul class="menu_upgrades_police hidden">
+          <li>
+            <a class="upgrade_button" href="/modify/states/{{ state.id }}/build/police">Build Station (10m)</a>
+          </li>
+          <li>
+            <a class="upgrade_button" href="/modify/states/{{ state.id }}/improve/police">Improve Training (20m)</a>
+          </li>
+          <li>
+            <a class="main_button" href="#">Main</a>
+          </li>
+        </ul>
+        <ul class="menu_upgrades_education hidden">
+          <li>
+            <a class="upgrade_button" href="/modify/states/{{ state.id }}/build/school">Build School (10m)</a>
+          </li>
+          <li>
+            <a class="upgrade_button" href="/modify/states/{{ state.id }}/improve/school">Improve Curriculum (20m)</a>
+          </li>
+          <li>
+            <a class="main_button" href="#">Main</a>
           </li>
         </ul>
       </div>
@@ -86,7 +153,10 @@
         <a class="turn-button" href="/turn">Next Turn</a>
       </div>
 
-    </div>
 
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script src="{% static 'game/scripts/state.js' %}"></script>
+
+    </div>
   </body>
 </html>

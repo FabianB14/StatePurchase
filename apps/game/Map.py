@@ -1,4 +1,5 @@
 from .models import *
+from random import randint
 
 class Map:
     def create(self):
@@ -53,13 +54,29 @@ class Map:
 
     def createState(self, name):
         tech = TechData.objects.create()
-        stats = StatData.objects.create(population=100)
+        stats = StatData.objects.create(population=100, money=40)
         agent = AgentData.objects.create(name=name, game_id=GameData.objects.first().id)
         tech.save()
         stats.save()
         agent.save()
         state = StateData.objects.create(name=name, tech_id=tech.id, stats_id=stats.id, agent_id=agent.id, game_id=GameData.objects.first().id)
         state.save()
+        self.createBuildings(state, "school")
+        self.createBuildings(state, "police")
+        self.createBuildings(state, "road")
+
+    def createBuildings(self, state, type):
+        count = randint(1, 2)
+        for i in range(0, count + 1):
+            location = Map.generateLocation()
+            building = BuildingData.objects.create(type=type, state_id=state.id, location_id=location.id)
+            building.save()
+
+    @staticmethod
+    def generateLocation():
+        location = LocationData.objects.create(x=randint(10, 800), y=-randint(200, 600))
+        location.save()
+        return location
 
     def render(self):
         output = ""
