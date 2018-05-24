@@ -53,3 +53,5 @@ def turn(request):
     Turn.process(game)
     game.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+def own_states(request):
+    

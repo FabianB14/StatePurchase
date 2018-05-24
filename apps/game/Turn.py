@@ -20,3 +20,4 @@ class Turn:
     @staticmethod
     def computeGDP(state):
         return state.stats.population
+    

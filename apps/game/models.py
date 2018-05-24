@@ -2,6 +2,8 @@ from django.db import models
 
 class User(models.Model):
     username = models.CharField(max_length=255)
+    level = models.CharField(max_length = 30)
+    
 
 class GameData(models.Model):
     user = models.ForeignKey(User, related_name="games", on_delete=models.CASCADE)
@@ -31,3 +33,4 @@ class StateData(models.Model):
     stats = models.ForeignKey(StatData, related_name="state", on_delete=models.CASCADE)
     agent = models.ForeignKey(AgentData, related_name="states", on_delete=models.CASCADE)
     game = models.ForeignKey(GameData, related_name="states", on_delete=models.CASCADE)
+    levels = models.ForeignKey(User, related_name='states',on_delete = models.CASCADE)
